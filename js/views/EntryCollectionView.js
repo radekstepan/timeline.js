@@ -29,11 +29,13 @@ App.Views.EntryCollectionView = Backbone.View.extend({
 		var today = new Date().getTime();
 		// Timeline weeks.
 		var weeks = [monday.getTime()];
+		// Months text form
+		var months = ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D']
 		
 		var head = ['<th/>'];
 		while(true) {
 			// <th class="week">1 Jan 2012</th>
-			head.push('<th class="week">' + monday.toString().substring(3, 15) + '</th>');
+			head.push('<th class="week">' + monday.getDate() + '<br/>' + months[monday.getMonth()] + '</th>');
 			// Move by 7 days forward.
 			monday = new Date(monday.getTime() + (7 * 24 * 60 * 60 * 1000));
 			var time = monday.getTime();
