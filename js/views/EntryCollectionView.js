@@ -84,6 +84,6 @@ App.Views.EntryCollectionView = Backbone.View.extend({
 	// Add all items in the Entries collection at once.
 	addAllEntries: function() {
 		App.Models.Entries.each(this.addOneEntry);
-	},
+	}
 
 });

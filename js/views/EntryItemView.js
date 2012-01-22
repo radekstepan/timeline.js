@@ -2,6 +2,7 @@
 // ----------
 
 App.Views.EntryItemView = Backbone.View.extend({
+	
 	// Cache the template function for a single item.
 	"template": _.template(function() {
 		var result;
@@ -14,6 +15,12 @@ App.Views.EntryItemView = Backbone.View.extend({
 		});
 		return result;
 	}()),
+
+	// The DOM events specific to an item.
+	"events": {
+		"mouseover span": "toggleText",
+		"mouseout span":  "toggleText"
+	},
 
 	// We listen to changes to our Model representation, re-rendering.
 	// If the view defines an initialize function, it will be called when the view is first created.
@@ -39,6 +46,16 @@ App.Views.EntryItemView = Backbone.View.extend({
 	// Remove the item, destroy the model.
 	clear: function() {
 		this.model.destroy();
+	},
+
+	// Show/hide text of an item.
+	toggleText: function() {
+		var p = $(this.el).find('p');
+		if (!p.is(':visible')) {
+			p.slideDown('fast');
+		} else {
+			p.slideUp('slow');
+		}
 	}
 
 });

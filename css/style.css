@@ -1,22 +1,32 @@
-body { font-family:Arial, Helvetica, sans-serif; background:url('../img/bg.jpg') fixed; }
+body { font-family:Arial, Helvetica, sans-serif; background:#fff; }
 
 table { margin:10px; }
 
-table tr:not(:first-child) { border-top:1px dotted #b3b3b3; }
+table tr:not(:first-child) { border-top:2px solid #dee1e1; }
 table tr th { font-size:14px; color:#6B6B6B; font-weight:normal; }
-table tr th.week { font-size:9px; }
-table tr th.label { padding:30px 0; -webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg); }
+table tr th.week { font-size:9px; color:#e4e3e0; }
+table tr th.label { padding:0 10px; color:#27acb4; }
 table tr td { padding:5px; font-size:12px; font-weight:bold; width:14px; }
-table tr td:not(:first-child) { border-left:1px dotted #cbcbcb; }
+table tr td:not(:first-child) { border-left:1px solid #f1f2f2; }
 
 table tr td div.entry { text-align:center; }
 table tr td div.entry span { -webkit-border-radius:999px; -moz-border-radius:999px; border-radius:999px; width:8px; height:8px;
 	display:inline-block; cursor:pointer; }
 table tr td div.entry span.size-2 { width:12px; height:12px; }
 table tr td div.entry span.size-3 { width:16px; height:16px; }
-table tr td div.entry.red { color:#F04C23; }
-table tr td div.entry.red span { background:#F04C23; }
-table tr td div.entry.green { color:#00B254; }
-table tr td div.entry.green span { background:#00B254; }
-table tr td div.entry.blue { color:#0096FF; }
-table tr td div.entry.blue span { background:#0096FF; }
+table tr td div.entry p { display:none; position:absolute; padding:10px; color:#FFF; }
+table tr td div.entry p:before { content:""; display:block; height:0; width:0; position:absolute; top:-20px; left:0;
+	border:10px solid transparent; }
+
+table tr td div.entry.pink span { background:#e471d2; color:#e471d2; }
+table tr td div.entry.pink p { background:rgba(228, 113, 210, 0.75); }
+table tr td div.entry.pink p:before { border-bottom-color:rgba(228, 113, 210, 0.75); }
+table tr td div.entry.orange span { background:#f16600; color:#f16600; }
+table tr td div.entry.orange p { background:rgba(241, 102, 0, 0.75); }
+table tr td div.entry.orange p:before { border-bottom-color:rgba(241, 102, 0, 0.75); }
+table tr td div.entry.violet span { background:#7867bf; color:#7867bf; }
+table tr td div.entry.violet p { background:rgba(120, 103, 191, 0.75); }
+table tr td div.entry.violet p:before { border-bottom-color:rgba(120, 103, 191, 0.75); }
+table tr td div.entry.green span { background:#27acb4; color:#27acb4; }
+table tr td div.entry.green p { background:rgba(39, 172, 180, 0.75); }
+table tr td div.entry.green p:before { border-bottom-color:rgba(39, 172, 180, 0.75); }
