@@ -2,12 +2,12 @@ body { font-family:Arial, Helvetica, sans-serif; background:url('../img/bg.jpg')
 
 table { margin:10px; }
 
-table tr:not(:first-child) { border-top:1px dotted #A0A0A0; }
+table tr:not(:first-child) { border-top:1px dotted #b3b3b3; }
 table tr th { font-size:14px; color:#6B6B6B; font-weight:normal; }
 table tr th.week { font-size:9px; }
 table tr th.label { padding:30px 0; -webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg); }
 table tr td { padding:5px; font-size:12px; font-weight:bold; width:14px; }
-table tr td:not(:first-child) { border-left:1px dotted #A0A0A0; }
+table tr td:not(:first-child) { border-left:1px dotted #cbcbcb; }
 
 table tr td div.entry { text-align:center; }
 table tr td div.entry span { -webkit-border-radius:999px; -moz-border-radius:999px; border-radius:999px; width:8px; height:8px;
