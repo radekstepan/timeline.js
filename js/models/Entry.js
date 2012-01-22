@@ -9,7 +9,8 @@ var Entry = Backbone.Model.extend({
 			'timestamp':  0,
 			'label':      null,
 			'text':       null,
-			'type':       null
+			'type':       null,
+			'size':       1 
 		};
 	},
 

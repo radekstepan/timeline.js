@@ -70,7 +70,6 @@ App.Views.EntryCollectionView = Backbone.View.extend({
 		var table = $(this.el);
 		table.find('tr:not(#timeline)').each(function() {
 			if ($(this).find('th').text() == entry.get("label")) {
-				console.log(entry.get("text") + " " + entry.getWeek());
 				var td = $(this).find('td.' + entry.getWeek());
 				if (td.length > 0) {
 					td.append(view);
