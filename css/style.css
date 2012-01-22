@@ -1,10 +1,9 @@
 body { font-family:Arial, Helvetica, sans-serif; background:url('../img/bg.jpg') fixed; }
 
 table tr:not(:first-child) { border-top:1px dotted #A0A0A0; }
-table tr th { font-size:16px; color:#6B6B6B; font-weight:normal; }
-table tr th.week { padding:10px; text-align:center; }
-table tr th.label { -webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg); height:52px; font-size:14px;
-	padding:10px 0; }
+table tr th { font-size:14px; color:#6B6B6B; font-weight:normal; -webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg); }
+table tr th.week { height:88px; }
+table tr th.label { height:52px; padding:10px 0; }
 table tr td { padding:5px; font-size:12px; font-weight:bold; }
 table tr td:not(:first-child) { border-left:1px dotted #A0A0A0; }
 
