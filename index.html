@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Timeline</title>
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <script src="js/lib/jquery-1.7.js"></script>
+
+    <script src="js/lib/underscore.js"></script>
+
+    <script src="js/lib/backbone.js"></script>
+    <script src="js/lib/backbone.localstorage.js"></script>
+    
+    <!-- the app itself -->
+    <script src="js/App.js"></script>
+    <script src="js/routers/MainRouter.js"></script>
+    
+    <script src="js/models/Entry.js"></script>
+
+    <script src="js/views/EntryCollectionView.js"></script>
+    <script src="js/views/EntryItemView.js"></script>
+  </head>
+  <body>
+
+    <table id="timeline"></table>
+
+  </body>
+</html>
