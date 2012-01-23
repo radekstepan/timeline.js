@@ -16,7 +16,10 @@ App.Views.EntryCollectionView = Backbone.View.extend({
 
 		// Get all the possible labels.
 		var labels = _.uniq(App.Models.Entries.map(function(entry) { return entry.get("label"); }));
-		this.renderLabels(labels, weeks);
+		// Store them in a Model, but transform them into 'key' form first.
+		App.Models.Labels = new Labels(_.map(labels, function(label) { return {'text': label}; }));
+		// Render.
+		this.renderLabels(weeks);
 
 		// On initialization, add all entries.
 		this.addAllEntries();
@@ -52,11 +55,12 @@ App.Views.EntryCollectionView = Backbone.View.extend({
 		return weeks;
 	},
 
-	renderLabels: function(labels, weeks) {
+	renderLabels: function(weeks) {
 		var view = $(this.el);
+		
 		// Create individual label - rows.
-		_.each(labels, function(label) {
-			var row = ['<th class="label">' + label + '</th>'];
+		App.Models.Labels.each(function(label) {
+			var row = ['<th class="label">' + label.get("text") + '</th>'];
 			var l = weeks.length,
 				i = -1;
 			while(++i < l) {
