@@ -16,8 +16,8 @@ App.Views.EntryCollectionView = Backbone.View.extend({
 
 		// Get all the possible labels.
 		var labels = _.uniq(App.Models.Entries.map(function(entry) { return entry.get("label"); }));
-		// Store them in a Model, but transform them into 'key' form first, but on a sorted list.
-		App.Models.Labels = new Labels(_.map(labels.sort(), function(label) { return {'text': label}; }));
+		// Store them in a Model, sorted.
+		App.Models.Labels = labels.sort();
 		// Render.
 		this.renderLabels(weeks);
 
@@ -59,8 +59,8 @@ App.Views.EntryCollectionView = Backbone.View.extend({
 		var view = $(this.el);
 		
 		// Create individual label - rows.
-		App.Models.Labels.each(function(label) {
-			var row = ['<th class="label">' + label.get("text") + '</th>'];
+		_.each(App.Models.Labels, function(label) {
+			var row = ['<th class="label">' + label + '</th>'];
 			var l = weeks.length,
 				i = -1;
 			while(++i < l) {
@@ -75,17 +75,11 @@ App.Views.EntryCollectionView = Backbone.View.extend({
 		// Create a View for us and make us into a rendered element.
 		var view = new App.Views.EntryItemView({model: entry}).render().el;
 
-		// Find where we belong.
-		var table = $(this.el);
-		table.find('tr:not(#timeline)').each(function() {
-			if ($(this).find('th').text() == entry.get("label")) {
-				var td = $(this).find('td.' + entry.getWeekStamp());
-				if (td.length > 0) {
-					td.append(view);
-				}
-				return;
-			}
-		});
+		// Append to the row - column where we belong.
+		$(this.el).find('tr:not(#timeline)')
+		.eq(App.Models.Labels.indexOf(entry.get("label")))
+		.find('td.' + entry.getWeekStamp())
+		.append(view);
 	},
 
 	// Add all items in the Entries collection at once.
