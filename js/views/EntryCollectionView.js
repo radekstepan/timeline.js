@@ -16,8 +16,8 @@ App.Views.EntryCollectionView = Backbone.View.extend({
 
 		// Get all the possible labels.
 		var labels = _.uniq(App.Models.Entries.map(function(entry) { return entry.get("label"); }));
-		// Store them in a Model, but transform them into 'key' form first.
-		App.Models.Labels = new Labels(_.map(labels, function(label) { return {'text': label}; }));
+		// Store them in a Model, but transform them into 'key' form first, but on a sorted list.
+		App.Models.Labels = new Labels(_.map(labels.sort(), function(label) { return {'text': label}; }));
 		// Render.
 		this.renderLabels(weeks);
 

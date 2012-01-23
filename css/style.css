@@ -3,7 +3,7 @@ body { font-family:Arial, Helvetica, sans-serif; background:#fff; }
 table { margin:10px; }
 
 table tr:not(:first-child) { border-top:2px solid #dee1e1; }
-table tr th { font-size:14px; color:#6B6B6B; font-weight:normal; }
+table tr th { font-size:14px; color:#6B6B6B; font-weight:normal; text-align:left; }
 table tr th.week { font-size:9px; color:#e4e3e0; }
 table tr th.label { padding:0 10px; color:#27acb4; }
 table tr td { padding:5px; font-size:12px; font-weight:bold; width:14px; text-align:center; }
