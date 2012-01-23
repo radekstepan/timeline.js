@@ -38,6 +38,10 @@ var Entries = Backbone.Collection.extend({
 
 	// Reference to this collection's model.
 	// Override this property to specify the model class that the collection contains.
-	"model": Entry
+	"model": Entry,
+
+	comparator: function(entry) {
+  		return entry.get("timestamp");
+	}
 
 });
