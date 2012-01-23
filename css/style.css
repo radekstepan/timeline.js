@@ -6,12 +6,11 @@ table tr:not(:first-child) { border-top:2px solid #dee1e1; }
 table tr th { font-size:14px; color:#6B6B6B; font-weight:normal; }
 table tr th.week { font-size:9px; color:#e4e3e0; }
 table tr th.label { padding:0 10px; color:#27acb4; }
-table tr td { padding:5px; font-size:12px; font-weight:bold; width:14px; }
+table tr td { padding:5px; font-size:12px; font-weight:bold; width:14px; text-align:center; }
 table tr td:not(:first-child) { border-left:1px solid #f1f2f2; }
 
-table tr td div.entry { text-align:center; }
-table tr td div.entry span { -webkit-border-radius:999px; -moz-border-radius:999px; border-radius:999px; width:8px; height:8px;
-	display:inline-block; cursor:pointer; }
+table tr td div.entry { margin:0 auto; margin-bottom:5px; }
+table tr td div.entry span { -webkit-border-radius:999px; -moz-border-radius:999px; border-radius:999px; width:8px; height:8px;	display:block; margin:0 auto; cursor:pointer; }
 table tr td div.entry span.size-2 { width:12px; height:12px; }
 table tr td div.entry span.size-3 { width:16px; height:16px; }
 table tr td div.entry p { display:none; position:absolute; padding:10px; color:#FFF; }

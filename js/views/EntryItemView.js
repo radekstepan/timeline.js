@@ -54,7 +54,7 @@ App.Views.EntryItemView = Backbone.View.extend({
 		if (!p.is(':visible')) {
 			p.slideDown('fast');
 		} else {
-			p.slideUp('slow');
+			p.hide();
 		}
 	}
 
