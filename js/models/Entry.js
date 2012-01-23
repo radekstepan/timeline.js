@@ -38,9 +38,6 @@ var Entries = Backbone.Collection.extend({
 
 	// Reference to this collection's model.
 	// Override this property to specify the model class that the collection contains.
-	"model": Entry,
-
-	// Save all of the list items under the `timeline` namespace.
-	"localStorage": new Store("timeline")
+	"model": Entry
 
 });
