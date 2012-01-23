@@ -15,8 +15,13 @@ var Entry = Backbone.Model.extend({
 	},
 
 	// Get the Monday for the timestamp of this item so we know which week to place this in.
-	getWeek: function() {
-		return (this.get("timestamp") - ((new Date(this.get("timestamp") * 1000).getDay() - 1) * (60 * 60 * 24))) * 1000;
+	getWeekStamp: function() {
+		// JS Date.
+		var date = new Date(this.get("timestamp") * 1000);
+		// Create a Date that is 00:00:00.
+		var date = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+		// Shift the Date stamp to Monday and return.
+		return ((date.getTime() / 1000) - ((date.getDay() - 1) * (60 * 60 * 24))) * 1000;
 	},
 
 	// A nicely formatted time from a timestamp for this item.
