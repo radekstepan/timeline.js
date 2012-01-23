@@ -26,6 +26,16 @@ App.Routers.Main = Backbone.Router.extend({
                 { 'label': '#1 Nutrition', 'timestamp': 1325289598, 'text': 'Bought Supplements', 'type': 'violet' }
         	];
         }
+
+        // Convert any dates to timestamps.
+        _.map(entries, function(entry) {
+            var time = entry['timestamp'];
+            if (Object.prototype.toString.call(time) == '[object String]') {
+                entry['timestamp'] = (new Date(time).getTime() / 1000);
+            }
+            return entry;
+        })
+
     	App.Models.Entries = new Entries(entries);
         
         // Instantiate the table with entries.
