@@ -16,6 +16,7 @@ table tr td div.entry span.size-3 { width:16px; height:16px; }
 table tr td div.entry p { display:none; position:absolute; padding:10px; color:#FFF; }
 table tr td div.entry p:before { content:""; display:block; height:0; width:0; position:absolute; top:-20px; left:0;
 	border:10px solid transparent; }
+table tr td div.entry p em { display:block; font-weight:normal; margin-top:5px; text-align:left; }
 
 table tr td div.entry.pink span { background:#e471d2; color:#e471d2; }
 table tr td div.entry.pink p { background:rgba(228, 113, 210, 0.75); }

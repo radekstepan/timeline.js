@@ -17,6 +17,11 @@ var Entry = Backbone.Model.extend({
 	// Get the Monday for the timestamp of this item so we know which week to place this in.
 	getWeek: function() {
 		return (this.get("timestamp") - ((new Date(this.get("timestamp") * 1000).getDay() - 1) * (60 * 60 * 24))) * 1000;
+	},
+
+	// A nicely formatted time from a timestamp for this item.
+	getTime: function() {
+		return new Date(this.get("timestamp") * 1000).toString().substr(0, 15);
 	}
 
 });

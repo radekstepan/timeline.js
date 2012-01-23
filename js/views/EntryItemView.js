@@ -32,9 +32,13 @@ App.Views.EntryItemView = Backbone.View.extend({
 	// Re-render the contents of the list item.
 	// Override this function with your code that renders the view template from model data, and updates this.el with the new HTML.
 	render: function() {
-		$(this.el).html(this.template(this.model.toJSON())); // serialize to JSON, fill tml, set as innerHTML
+		var div = $(this.el);
+		div.html(this.template(this.model.toJSON())); // serialize to JSON, fill tml, set as innerHTML
         // Set the type of the item.
-        $(this.el).addClass("entry " + this.model.get("type"));
+        div.addClass("entry " + this.model.get("type"));
+		// Show the actual time the entry was logged.
+		div.find('p').append($('<em/>', { 'text': this.model.getTime() }));
+
 		return this;
 	},
 
