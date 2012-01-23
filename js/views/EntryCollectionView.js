@@ -23,22 +23,25 @@ App.Views.EntryCollectionView = Backbone.View.extend({
 	},
 
 	renderTimelineRange: function(from) {
-		// Beging with a Monday way back.
-		var monday = new Date((from - ((new Date(from * 1000).getDay() - 1) * (60 * 60 * 24))) * 1000); // getDay() starts with Sun.
+		var date = new Date(from * 1000);
+		// Beging with a Monday way back, at 00:00:00.
+		date = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+		date = new Date(((date.getTime() / 1000) - ((date.getDay() - 1) * (60 * 60 * 24))) * 1000);
+		
 		// Until today.
 		var today = new Date().getTime();
 		// Timeline weeks.
-		var weeks = [monday.getTime()];
+		var weeks = [date.getTime()];
 		// Months text form
 		var months = ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D']
 		
 		var head = ['<th/>'];
 		while(true) {
 			// <th class="week">1 Jan 2012</th>
-			head.push('<th class="week">' + monday.getDate() + '<br/>' + months[monday.getMonth()] + '</th>');
+			head.push('<th class="week">' + date.getDate() + '<br/>' + months[date.getMonth()] + '</th>');
 			// Move by 7 days forward.
-			monday = new Date(monday.getTime() + (7 * 24 * 60 * 60 * 1000));
-			var time = monday.getTime();
+			date = new Date(date.getTime() + (7 * 24 * 60 * 60 * 1000));
+			var time = date.getTime();
 			if (time > today) break;
 			weeks.push(time);
 		}
