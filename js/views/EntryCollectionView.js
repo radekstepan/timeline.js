@@ -76,10 +76,6 @@ App.Views.EntryCollectionView = Backbone.View.extend({
 		// Create a View for us and make us into a rendered element.
 		var view = new App.Views.EntryItemView({model: entry}).render().el;
 
-		if (entry.get("type") == "orange") {
-			console.log(new Date(entry.getWeekStamp()).toString());
-		}
-
 		// Append to the row - column where we belong.
 		$(this.el).find('tr:not(#timeline)')
 		.eq(App.Models.Labels.indexOf(entry.get("label")))
@@ -90,6 +86,11 @@ App.Views.EntryCollectionView = Backbone.View.extend({
 	// Add all items in the Entries collection at once.
 	addAllEntries: function() {
 		App.Models.Entries.each(this.addOneEntry);
+
+		// Scroll to top right corner.
+		$('html, body').stop().animate({
+		    scrollLeft: $('table').width()
+		}, 1000);
 	}
 
 });

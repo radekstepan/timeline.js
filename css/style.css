@@ -1,12 +1,13 @@
 body { font-family:Arial, Helvetica, sans-serif; background:#fff; }
 
-table { margin:10px; margin-right:200px; }
+table { margin:15px 10px 10px 20px; float:left; }
 
 table tr:not(:first-child) { border-top:2px solid #dee1e1; }
 table tr th { font-size:14px; color:#6B6B6B; font-weight:normal; text-align:left; }
 table tr th.week { font-size:9px; text-align:center; }
-table tr th.label { padding:0 10px; color:#27acb4; white-space:nowrap; }
-table tr td { padding:5px; font-size:12px; font-weight:bold; width:14px; text-align:center; }
+table tr th.label { padding:0 10px; color:#27acb4; white-space:nowrap; position:fixed; background:rgba(255, 255, 255, 0.65);
+	height:999px; }
+table tr td { padding:5px; font-size:12px; font-weight:bold; min-width:24px; text-align:center; }
 table tr td:not(:first-child) { border-left:1px solid #f1f2f2; }
 
 table tr td div.entry { margin:0 auto; margin-bottom:5px; }
