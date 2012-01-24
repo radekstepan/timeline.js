@@ -41,7 +41,8 @@ App.Views.EntryCollectionView = Backbone.View.extend({
 		var head = ['<th/>'];
 		while(true) {
 			// <th class="week">1 Jan 2012</th>
-			head.push('<th class="week">' + date.getDate() + '<br/>' + months[date.getMonth()] + '</th>');
+			head.push('<th class="week" title="' + date.toString() + '">' + date.getDate() + '<br/>'
+				+ months[date.getMonth()] + '</th>');
 			// Move by 7 days forward.
 			date = new Date(date.getTime() + (7 * 24 * 60 * 60 * 1000));
 			var time = date.getTime();
@@ -64,7 +65,7 @@ App.Views.EntryCollectionView = Backbone.View.extend({
 			var l = weeks.length,
 				i = -1;
 			while(++i < l) {
-				row.push('<td class="' + weeks[i] + '"></td>')
+				row.push('<td class="' + weeks[i] + ' ' +  (weeks[i] - (60 * 60 * 1000)) + '"></td>')
 			}
 			view.append($('<tr/>').append(row.join('')));
 		});
@@ -74,6 +75,10 @@ App.Views.EntryCollectionView = Backbone.View.extend({
 	addOneEntry: function(entry) {
 		// Create a View for us and make us into a rendered element.
 		var view = new App.Views.EntryItemView({model: entry}).render().el;
+
+		if (entry.get("type") == "orange") {
+			console.log(new Date(entry.getWeekStamp()).toString());
+		}
 
 		// Append to the row - column where we belong.
 		$(this.el).find('tr:not(#timeline)')
